@@ -1,0 +1,19 @@
+{
+  "name": "insertdoctor",
+  "version": "1.0.0",
+  "description": "echo \"# InsertDoctorAWSLambda\" >> README.md\r git init\r git add README.md\r git commit -m \"first commit\"\r git branch -M main\r git remote add origin https://github.com/mehrthur-teste/InsertDoctorAWSLambda.git\r git push -u origin main",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^13.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.4.4"
+  }
+}

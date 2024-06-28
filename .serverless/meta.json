@@ -13,30 +13,84 @@
       "provider": {
         "name": "aws",
         "runtime": "nodejs20.x",
+        "memorySize": 512,
+        "timeout": 10,
+        "stage": "prod",
         "region": "us-east-1"
       },
       "functions": {
-        "insertDoctor": {
-          "handler": "handler.insertDoctor",
+        "create": {
+          "handler": "handler.create",
           "events": [
             {
               "http": {
-                "path": "doctor",
-                "method": "post"
+                "path": "users",
+                "method": "post",
+                "cors": true
+              }
+            }
+          ]
+        },
+        "getOne": {
+          "handler": "handler.getOne",
+          "events": [
+            {
+              "http": {
+                "path": "users/{id}",
+                "method": "get",
+                "cors": true
+              }
+            }
+          ]
+        },
+        "getAll": {
+          "handler": "handler.getAll",
+          "events": [
+            {
+              "http": {
+                "path": "users",
+                "method": "get",
+                "cors": true
+              }
+            }
+          ]
+        },
+        "update": {
+          "handler": "handler.update",
+          "events": [
+            {
+              "http": {
+                "path": "users/{id}",
+                "method": "put",
+                "cors": true
+              }
+            }
+          ]
+        },
+        "delete": {
+          "handler": "handler.delete",
+          "events": [
+            {
+              "http": {
+                "path": "users/{id}",
+                "method": "delete",
+                "cors": true
               }
             }
           ]
         }
-      }
+      },
+      "plugins": [
+        "serverless-offline"
+      ]
     },
-    "serviceRawFile": "service: insert-doctor\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: us-east-1\r\n\r\nfunctions:\r\n  insertDoctor:\r\n    handler: handler.insertDoctor\r\n    events:\r\n      - http:\r\n          path: doctor\r\n          method: post\r\n",
+    "serviceRawFile": "        service: insert-doctor\r\n \r\n        provider:\r\n          name: aws\r\n          runtime: nodejs20.x \r\n          memorySize: 512\r\n          timeout: 10 \r\n          stage: prod \r\n          region: us-east-1\r\n        \r\n        functions: \r\n          create:\r\n            handler: handler.create # point to exported create function in handler.js\r\n            events:\r\n              - http:\r\n                  path: users \r\n                  method: post\r\n                  cors: true\r\n          getOne:\r\n            handler: handler.getOne\r\n            events:\r\n              - http:\r\n                  path: users/{id} \r\n                  method: get\r\n                  cors: true\r\n          getAll:\r\n            handler: handler.getAll \r\n            events:\r\n             - http:\r\n                 path: users\r\n                 method: get\r\n                 cors: true\r\n          update:\r\n            handler: handler.update \r\n            events:\r\n             - http:\r\n                 path: users/{id}\r\n                 method: put\r\n                 cors: true\r\n          delete:\r\n            handler: handler.delete\r\n            events:\r\n             - http:\r\n                 path: users/{id} \r\n                 method: delete\r\n                 cors: true\r\n\r\n        plugins:\r\n        - serverless-offline # adding the plugin to be able to run the offline emulation",
     "command": [
-      "create"
+      "offline",
+      "start"
     ],
     "options": {
-      "template": "aws-nodejs",
-      "path": "C:\\projects-to-migration\\Medic-AI-API-AWS-LAMDA\\InsertDoctor",
-      "name": "insert-doctor"
+      "skipCacheInvalidation": true
     },
     "error": {
       "message": "AWS credentials appear to be invalid. Run \"serverless\" to set up AWS credentials, or learn more in our docs: http://slss.io/aws-creds-setup. Original error from AWS: \"The security token included in the request is invalid.\"",
