@@ -1,0 +1,14 @@
+service: insert-doctor
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: us-east-1
+
+functions:
+  insertDoctor:
+    handler: handler.insertDoctor
+    events:
+      - http:
+          path: doctor
+          method: post

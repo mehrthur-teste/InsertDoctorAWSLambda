@@ -1,0 +1,69 @@
+{
+  "C:\\projects-to-migration\\Medic-AI-API-AWS-LAMDA\\InsertDoctor": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.7",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeServiceName": null,
+    "servicePath": "C:\\projects-to-migration\\Medic-AI-API-AWS-LAMDA\\InsertDoctor",
+    "serviceConfigFileName": "serverless.yaml",
+    "service": {
+      "service": "insert-doctor",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "region": "us-east-1"
+      },
+      "functions": {
+        "insertDoctor": {
+          "handler": "handler.insertDoctor",
+          "events": [
+            {
+              "http": {
+                "path": "doctor",
+                "method": "post"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "serviceRawFile": "service: insert-doctor\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: nodejs20.x\r\n  region: us-east-1\r\n\r\nfunctions:\r\n  insertDoctor:\r\n    handler: handler.insertDoctor\r\n    events:\r\n      - http:\r\n          path: doctor\r\n          method: post\r\n",
+    "command": [
+      "create"
+    ],
+    "options": {
+      "template": "aws-nodejs",
+      "path": "C:\\projects-to-migration\\Medic-AI-API-AWS-LAMDA\\InsertDoctor",
+      "name": "insert-doctor"
+    },
+    "error": {
+      "message": "AWS credentials appear to be invalid. Run \"serverless\" to set up AWS credentials, or learn more in our docs: http://slss.io/aws-creds-setup. Original error from AWS: \"The security token included in the request is invalid.\"",
+      "code": "AWS_CREDENTIALS_MISSING"
+    },
+    "machineId": "0149efbb6470bff004b536ba2a674685",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "2bc58b38-8d32-4f34-8e92-af5907d1a909",
+    "orgName": "headphones",
+    "userId": "K4YwT02Tlc9PMgZsp0",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "headphones",
+    "subscription": null,
+    "userEmail": "mehrthurfordevtools@gmail.com",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}
